@@ -4,7 +4,7 @@ import fire from "../../Fire";
 function Admin(){
 
     const [games, setGames]=React.useState([]);
-    const [submit, setSubmit]=React.useState("True")
+    const [submit, setSubmit]=React.useState(false)
     const [form, setForm] = React.useState({
         name:"",
         stock:"",
@@ -55,9 +55,34 @@ function Admin(){
                 price:"",
                 image:""
             });
-            setSubmit(!submit)
+            setSubmit(true)
         });
     };
+
+    const boxStyle = {
+
+        height: "470px",
+        width: "300px",
+        justifyItems: "center",
+        color: "black",
+        display: "inline-flex",
+        paddingBottom: "10px",
+        flexWrap: "wrap",
+        margin: "50px",
+        objectFit: "contain",
+        backgroundColor: "blue",
+
+
+    }
+
+    const game = games.map((it, idx)=>
+        <div key={idx} style={boxStyle}>
+            <h1>Name: {it.name}</h1>
+            <h3>Price: ${it.price}</h3>
+            <h3>Quantity: {it.stock}</h3>
+            <img src = {it.image} alt ={it.name} width="250px" height="300px"/>
+        </div>
+    );
 
     return(
         <div>
@@ -67,6 +92,7 @@ function Admin(){
             <input type="text" placeholder={"Price..."} onChange={handleChange("price")}/>
             <input type="text" placeholder={"Image..."} onChange={handleChange("image")}/>
             <button onClick={handleSubmit}>Submit</button>
+            {game}
         </div>
     )
 }
