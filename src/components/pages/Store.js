@@ -41,7 +41,7 @@ function Store() {
         height: "470px",
         width: "300px",
         justifyItems: "center",
-        color: "black",
+        color: "white",
         display: "inline-flex",
         paddingBottom: "10px",
         flexWrap: "wrap",

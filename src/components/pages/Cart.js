@@ -10,6 +10,7 @@ function Cart(){
     const [show, setShow]=React.useState(false)
 
 
+
     const db=fire.firestore();
 
     React.useEffect(()=>{
@@ -65,7 +66,7 @@ function Cart(){
 
     const remove=(id)=>{
         db.collection("cart").doc(id).delete().then(()=>{
-            setSubmit("False")
+            setSubmit(true)
         })
     }
 
