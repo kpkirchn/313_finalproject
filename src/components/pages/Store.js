@@ -4,14 +4,14 @@ import fire from "../../Fire";
 
 function Store() {
     const [games, setGames] = React.useState([]);
-    const [show, setShow] = React.useState(false);
-    const [popUp, setPopUp] = React.useState(false);
+
+
 
 
 
     const db = fire.firestore();
 
-    React.useEffect(() => {
+    React.useEffect(()=>{
         let newItems = [];
 
         db.collection("store").get().then(function (snapshot) {
@@ -68,7 +68,7 @@ function Store() {
                 <h3>Name: {it.name}</h3>
                 <h3>Stock: {it.stock} </h3>
                 <h3>Price: ${it.price}</h3>
-                {show===false&&<button onClick={() => addCart(it)}>Add to Cart</button>}
+                <button onClick={() => addCart(it)}>Add to Cart</button>
             </div>
 
 

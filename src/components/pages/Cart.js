@@ -1,7 +1,6 @@
 import React from 'react';
 import fire from "../../Fire";
-import {Link} from 'react-router-dom';
-import Store from "./Store";
+
 
 
 function Cart(){
